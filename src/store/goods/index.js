@@ -20,7 +20,7 @@ const GoodsStore = {
     actions: {
         async loadNames() {
             try {
-                return await fetch('/json/names.json')
+                return await fetch(`${process.env.BASE_URL}json/names.json`)
                     .then(r => r.json())
                     .then((data) => {
                         const dataEntries = Object.entries(data);
@@ -51,7 +51,7 @@ const GoodsStore = {
 
         async loadData({ rootGetters }) {
             try {
-                return await fetch('/json/data.json')
+                return await fetch(`${process.env.BASE_URL}json/data.json`)
                     .then(r => r.json())
                     .then(({
                         Value: {
