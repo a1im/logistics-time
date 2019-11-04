@@ -28,15 +28,18 @@ export default class Goods extends Model {
     }
 
     get price() {
-        return this.priceRub
-            ? this.priceRub.toFixed(2)
-            : 0;
+        return this.priceRub || 0;
     }
 
+    /**
+     * Переопределим обновление даных
+     * @param data
+     */
     merge(data) {
         const { priceRub } = data;
 
-        if (priceRub) {
+        // запомним предыдущее значение, для анимации повышения или понижения
+        if (priceRub !== null) {
             this.prevPriceRub = this.priceRub;
 
             setTimeout(() => {

@@ -4,7 +4,7 @@
         @click="addGoodsToCart"
     )
         .goods-item-name {{ goods.name }} ({{ goods.amount }})
-        .goods-item-price(v-if="goods.price") {{ goods.price }} ₽
+        .goods-item-price(v-if="goods.price") {{ goods.price | money }}
 </template>
 
 <script>

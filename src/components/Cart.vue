@@ -7,7 +7,7 @@
                 :key="goodsCart.id"
                 :goodsCart="goodsCart"
             )
-            .cart-full-price Общая стоимость: {{ fullPrice }} ₽
+            .cart-full-price Общая стоимость: {{ fullPrice | money }}
 </template>
 
 <script>
@@ -27,12 +27,8 @@ export default {
         ]),
 
         fullPrice() {
-            return this.cartList.reduce((accum, cur) => accum + cur.fullPrice, 0).toFixed(2);
+            return this.cartList.reduce((accum, cur) => accum + cur.fullPrice, 0);
         },
-    },
-
-    methods: {
-
     },
 };
 </script>

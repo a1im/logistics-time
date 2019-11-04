@@ -3,11 +3,13 @@ import {
     normalizeNamesGoods,
     normalizeDataGoods,
 } from './normalize';
+import { Table } from '@/libs';
 import {
-    Table,
     Group,
     Goods,
 } from '@/models';
+
+const apiFetch = (url, options = {}) => fetch(`${process.env.BASE_URL}json${url}`, options);
 
 const GoodsStore = {
     namespaced: true,
@@ -18,9 +20,13 @@ const GoodsStore = {
     },
 
     actions: {
+        /**
+         * Запрос названий для групп и товаров
+         * @returns {Promise<{groups: Array, goods: Array}>}
+         */
         async loadNames() {
             try {
-                return await fetch(`${process.env.BASE_URL}json/names.json`)
+                return await apiFetch('/names.json')
                     .then(r => r.json())
                     .then((data) => {
                         const dataEntries = Object.entries(data);
@@ -51,7 +57,7 @@ const GoodsStore = {
 
         async loadData({ rootGetters }) {
             try {
-                return await fetch(`${process.env.BASE_URL}json/data.json`)
+                return await apiFetch('/data.json')
                     .then(r => r.json())
                     .then(({
                         Value: {

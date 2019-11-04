@@ -6,7 +6,7 @@
         .goods-item-cart-input-block
             input.goods-item-cart-input(:value="count" @input="changeCount")
             .goods-item-cart-input-limit(:class="{ error: isExceeded }") {{ textInput }}
-        .goods-item-cart-price {{ goods.price }} ₽ / шт
+        .goods-item-cart-price {{ goods.price | money }}/шт
         .goods-item-cart-delete(@click="deleteCart(goodsCart.id)") X
 </template>
 

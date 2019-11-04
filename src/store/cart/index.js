@@ -1,17 +1,11 @@
-import {
-    Table,
-    GoodsCart,
-} from '@/models';
+import { Table } from '@/libs';
+import { GoodsCart } from '@/models';
 
 const CartStore = {
     namespaced: true,
 
     state: {
         tableCart: new Table('cart'),
-    },
-
-    actions: {
-
     },
 
     mutations: {

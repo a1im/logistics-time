@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { Random } from '@/utils';
+import { Random } from '@/libs';
 
 // modules
 import CartStore from './cart';
