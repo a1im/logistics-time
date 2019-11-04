@@ -51,7 +51,7 @@ export default {
             this.loading = true;
             await this.loadInitialData();
 
-            this.interval = setInterval(this.intervalUpdateData, 5000);
+            this.interval = setInterval(this.intervalUpdateData, 15000);
         } finally {
             this.loading = false;
         }
